@@ -126,3 +126,16 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     }
 
 });
+
+// Event to delete a book from the list
+document.querySelector('#book-list').addEventListener('click', (e) => {
+    
+    // remove book form frontend
+    UI.deleteBook(e.target);
+
+    // remove book from storage
+    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
+
+    // Successfully deleted a book alert
+     UI.showAlert('Your book has been deleted', 'success');
+ });
